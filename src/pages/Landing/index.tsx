@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 
 import { Container, LandingImage, Title, TitleBold, ButtonsContainer, Button, ButtonText, TotalConnections } from './styles';
 
@@ -9,6 +10,12 @@ import giveClassesIcon from '../../assets/images/icons/give-classes.png';
 import heartIcon from '../../assets/images/icons/heart.png';
 
 const Landing: React.FC = () => {
+  const navigation = useNavigation();
+
+  function handleNavigateToGiveClassesPage() {
+    navigation.navigate('GiveClasses')
+  }
+
   return (
     <Container>
       <LandingImage source={landingImg} style={{resizeMode: 'contain'}} />
@@ -25,7 +32,7 @@ const Landing: React.FC = () => {
           <ButtonText>Estudar</ButtonText>
         </Button>
 
-        <Button style={{backgroundColor: '#04d361'}}>
+        <Button onPress={handleNavigateToGiveClassesPage} style={{backgroundColor: '#04d361'}}>
           <Image source={giveClassesIcon} />
 
           <ButtonText>Dar aulas</ButtonText>
