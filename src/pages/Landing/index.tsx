@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
 
 import { Container, LandingImage, Title, TitleBold, ButtonsContainer, Button, ButtonText, TotalConnections } from './styles';
 
