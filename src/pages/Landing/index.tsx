@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import api from '../../services/api';
 
 import { Container, LandingImage, Title, TitleBold, ButtonsContainer, Button, ButtonText, TotalConnections } from './styles';
 
@@ -19,6 +21,16 @@ const Landing: React.FC = () => {
   function handleNavigateToStudyPages() {
     navigation.navigate('Study')
   }
+
+  const [totalConnections, setTotalConnections] = useState(0);
+
+    useEffect(() => {
+      api.get('connections').then(response => {
+        const { total } = response.data;
+
+        setTotalConnections(total);
+      })
+    }, [])
 
   return (
     <Container>
@@ -44,7 +56,7 @@ const Landing: React.FC = () => {
       </ButtonsContainer>
 
       <TotalConnections>
-        Total de 230 conceções já realizadas {' '}
+        Total de {totalConnections} conceções já realizadas {' '}
         <Image source={heartIcon} />
       </TotalConnections>
     </Container>

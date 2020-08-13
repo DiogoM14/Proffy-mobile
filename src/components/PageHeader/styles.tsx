@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
-  padding: 60px;
+  padding: 60px 35px;
   background: #8257e5;
 `;
 
