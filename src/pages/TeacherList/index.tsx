@@ -6,7 +6,7 @@ import api from '../../services/api';
 import PageHeader from '../../components/PageHeader';
 
 import { Container, ScrollTeacherList, SearchForm, Label, Input, InputGroup, InputBlock, SubmitButton, SubmitButtonText } from './styles';
-import TeacherItem from '../../components/TeacherItem';
+import TeacherItem, { Teacher } from '../../components/TeacherItem';
 
 import { Feather } from '@expo/vector-icons';
 
@@ -32,8 +32,7 @@ const TeacherList: React.FC = () => {
       }
     })
 
-    console.log(response.data);
-
+    setIsFiltersVisible(false);
     setTeachers(response.data);
   }
 
@@ -91,7 +90,7 @@ const TeacherList: React.FC = () => {
         paddingHorizontal: 16,
         paddingBottom: 16,
       }}>
-        {teachers.map(teacher => <TeacherItem />)}
+        {teachers.map((teacher: Teacher) => <TeacherItem key={teacher.id} teacher={teacher} />)}
       </ScrollTeacherList>
     </Container>
   );

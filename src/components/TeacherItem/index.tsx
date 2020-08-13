@@ -25,22 +25,22 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
   return (
     <Container>
       <Profile>
-        <Avatar source={{ uri: 'https://github.com/xavi002.png' }} />
+        <Avatar source={{ uri: teacher.avatar }} />
 
         <ProfileInfo>
-          <Name>Diogo</Name>
-          <Subject>Matemática</Subject>
+          <Name>{teacher.name}</Name>
+          <Subject>{teacher.subject}</Subject>
         </ProfileInfo>
       </Profile>
 
       <Bio>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo illo totam iste? Fugiat vitae ea tempora aliquid. Qui ad, voluptas accusamus, nulla maiores asperiores veritatis et nesciunt reiciendis perspiciatis quisquam.
+        {teacher.bio}
       </Bio>
 
       <Footer>
         <Price>
           Preço/hora {'   '}
-          <PriceValue>20$</PriceValue>
+          <PriceValue>{teacher.cost}</PriceValue>
         </Price>
 
         <ButtonsContainer>
