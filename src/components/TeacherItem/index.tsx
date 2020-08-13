@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, Linking } from 'react-native';
 
 import { Container, Profile, Avatar, ProfileInfo, Name, Subject, Bio, Footer, Price, PriceValue, ButtonsContainer, FavoriteButton, ContactButton, ContactButtonText } from './styles';
 
@@ -22,6 +22,10 @@ interface TeacherItemProps {
 }
 
 const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function handleLinkToWhatsapp() {
+    Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`)
+  }
+
   return (
     <Container>
       <Profile>
@@ -40,7 +44,7 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
       <Footer>
         <Price>
           Preço/hora {'   '}
-          <PriceValue>{teacher.cost}</PriceValue>
+          <PriceValue>{teacher.cost}$</PriceValue>
         </Price>
 
         <ButtonsContainer>
@@ -48,7 +52,7 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
             <Image source={heartOutlineIcon} />
           </FavoriteButton>
 
-          <ContactButton>
+          <ContactButton onPress={handleLinkToWhatsapp}>
             <Image source={whatsappIcon} />
             <ContactButtonText>Entrar em contacto</ContactButtonText>
           </ContactButton>
