@@ -1,14 +1,23 @@
 import React from 'react';
-import { View } from 'react-native';
 
 import PageHeader from '../../components/PageHeader';
 
-import { Container } from './styles';
+import { Container, ScrollTeacherList } from './styles';
+import TeacherItem from '../../components/TeacherItem';
 
 const TeacherList: React.FC = () => {
   return (
     <Container>
       <PageHeader title="Proffys disponíveis" />
+
+      <ScrollTeacherList contentContainerStyle={{
+        paddingHorizontal: 16,
+        paddingBottom: 16,
+      }}>
+        <TeacherItem />
+        <TeacherItem />
+        <TeacherItem />
+      </ScrollTeacherList>
     </Container>
   );
 }
