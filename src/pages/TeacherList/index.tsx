@@ -10,6 +10,7 @@ import { Container, ScrollTeacherList, SearchForm, Label, Input, InputGroup, Inp
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
 
 import { Feather } from '@expo/vector-icons';
+import { useFocusEffect } from '@react-navigation/native';
 
 const TeacherList: React.FC = () => {
   const [favorites, setFavorites] = useState<number[]>([]);
@@ -27,6 +28,10 @@ const TeacherList: React.FC = () => {
       }
     });
   }
+
+  useFocusEffect(() => {
+    loadFavorites();
+  });
 
   function handleToggleFiltersVisible() {
     setIsFiltersVisible(!isFiltersVisible);
